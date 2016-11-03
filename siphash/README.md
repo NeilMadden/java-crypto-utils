@@ -5,6 +5,36 @@ A fast implementation of the [SipHash](https://131002.net/siphash/) family of se
 Provides implementations of SipHash with both 64-bit and 128-bit output tags. Includes a manually unrolled version of
 SipHash-2-4.
 
+## Usage
+
+The simplest way to use this library is via the artifacts deployed to Maven Central:
+
+``` xml
+<dependency>
+    <groupId>software.pando.crypto</groupId>
+    <artifactId>siphash</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+Usage is then very simple:
+
+``` java
+SecretKey key = new SecretKeySpec(keyData, "RAW");
+SipHash hash = SipHash.getInstance(key);
+byte[] data = ...;
+byte[] tag = hash.mac(data);
+```
+
+To verify that some data received matches the tag you should compute the same MAC over the data (as above) and then
+compare the two **using a constant-time equality test**:
+
+``` java
+byte[] computedTag = hash.mac(data);
+byte[] expectedTag = ...;
+boolean isValid = MessageDigest.isEqual(computedTag, expectedTag);
+```
+
 ## Microbenchmarks
 
 There is a rudimentary benchmarking program in the test classes called `SpeedTest`. It attempts to benchmark this 

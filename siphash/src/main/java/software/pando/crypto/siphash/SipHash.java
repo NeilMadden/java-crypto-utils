@@ -140,6 +140,12 @@ public class SipHash {
         return 64;
     }
 
+    /**
+     * Computes a message authentication code (MAC) tag for the given input data and the configured secret key.
+     *
+     * @param input the input data.
+     * @return the computed SipHash tag for the data using the configured key.
+     */
     public byte[] mac(final byte[] input) {
         long state[] = Arrays.copyOf(initialState, 4);
 
