@@ -71,6 +71,7 @@
 
     <modules>
         <module>siphash</module>
+        <module>chacha20</module>
     </modules>
 
     <dependencyManagement>
