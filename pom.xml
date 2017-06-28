@@ -72,6 +72,7 @@
     <modules>
         <module>siphash</module>
         <module>chacha20</module>
+        <module>blake2</module>
     </modules>
 
     <dependencyManagement>
