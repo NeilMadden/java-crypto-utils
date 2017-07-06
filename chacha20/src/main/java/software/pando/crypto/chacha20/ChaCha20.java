@@ -38,7 +38,7 @@ public class ChaCha20 {
 
     private final int[] state;
 
-    ChaCha20(final SecretKey key, final byte[] nonce, final int initialCounter) {
+    public ChaCha20(final SecretKey key, final byte[] nonce, final int initialCounter) {
         if (!ALGORITHM.equals(key.getAlgorithm())) {
             throw new IllegalArgumentException("Invalid key - not intended for ChaCha20");
         }

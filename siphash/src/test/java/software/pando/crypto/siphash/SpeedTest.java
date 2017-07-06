@@ -57,7 +57,7 @@ public class SpeedTest {
         hmacSha1.init(KEY);
 
         final Random random = new Random();
-        final byte[] data = new byte[4096];
+        final byte[] data = new byte[4097];
         random.nextBytes(data);
 
         List<Hash> hashes = Arrays.asList(
